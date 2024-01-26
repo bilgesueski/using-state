@@ -1,19 +1,27 @@
 import { useState } from "react";
-
+import Course from "./Course";
 import "./App.css";
 
+function getRandomCourse() {
+  const courseArray = ['Angular', 'Bootstrap', 'Ccsharap', 'KompleWeb'];
+  return courseArray[Math.floor(Math.random()*courseArray.length)];
+}
+
 function App() {
-  const [value, setValue] = useState(0); // value başlangıç değeridir ve bu değer (0)'dır
+  const [courses, setCourses] = useState([]);
 
   const handleClick = () => {
-    console.log("Bilgesu");
-    setValue(value + 1);
+    setCourses([...courses, getRandomCourse()]);
   };
   return (
     <>
       <div className="App">
         <button onClick={handleClick}>Kurs Ekle</button>
-        <div>Kurs Sayısı: {value}</div>
+        {
+          courses.map((course,index)=>{
+            return <Course key={index} courseName ={course} />;
+          })
+        }
       </div>
     </>
   );
