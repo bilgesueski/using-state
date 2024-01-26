@@ -2,7 +2,7 @@ import Angular from "./assets/aurora.JPG";
 import Bootstrap from "./assets/fji.JPG";
 import Ccsharp from "./assets/mich.JPG";
 import KompleWeb from "./assets/tame.PNG";
-import './Course.css'
+import "./Course.css";
 
 const courseMap = {
   Angular,
