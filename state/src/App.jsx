@@ -13,16 +13,29 @@ function App() {
   const handleClick = () => {
     setCourses([...courses, getRandomCourse()]);
   };
+  const handleRemove = (index) => {
+    const newCourses = courses.filter((course, i) => {
+      return index !== i;
+    });
+    setCourses(newCourses);
+  };
   const courseList = courses.map((course, index) => {
-    return <Course key={index} courseName={course} />;
+    return <Course
+             key={index} 
+             courseName={course}
+              handleRemove={() => handleRemove(index)}
+              />;
   });
+
   return (
     <>
       <div className="App">
+        
+
+        <div className="courseList">{courseList}</div>
         <button className="appButton" onClick={handleClick}>
           Kurs Ekle
         </button>
-        <div className="courseList">{courseList}</div>
       </div>
     </>
   );
